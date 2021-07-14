@@ -1,6 +1,6 @@
 // 這邊是路由檔案
 const express = require('express');
-const KitSet = require(__dirname + '/../models/KitSet')
+const KitCat = require(__dirname + '/../models/Kitcat')
 const router = express.Router();
 
 /*
@@ -10,7 +10,7 @@ const router = express.Router();
 
 // 取得所有商品 + 陳列 (前台：沒有要編輯商品)
 router.get('/', async (req, res)=>{
-    res.json(await KitSet.getRows(req.query));
+    res.json(await KitCat.getRows(req.query));
     // console.log('這是', res.json(await KitSet.getRows(req.query)))
 });
 

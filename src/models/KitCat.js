@@ -4,18 +4,13 @@
 const db = require(__dirname + '/../modules/mysql2-connect')
 
 // CRUD
-class KitSet {
+class KitCat {
   // `sid`, `author`, `bookname`, `category_sid`, `book_id`, `publish_date`, `pages`, `price`, `isbn`, `on_sale`, `introduction`（資料庫所有欄位都要對上，不可多，不可少 ）
   constructor(data) {
     // data: Object
     let defaultData = {
-      kitItemId: null,
-      itemNo: '',
-      itemName: '',
-      kitItemQty: '',
-      itemPrice: '',
-      kitCategory: '',
-      kitImg: '',
+      kitCategoryId:null,
+      kitCategoryName:'',
     }
     this.data = { ...defaultData, ...data } // 預設的值先解開來，後面的設定的會蓋掉前面的
   }
@@ -77,7 +72,7 @@ class KitSet {
     let r2, totalPages=0;
     
         // totalPages = Math.ceil(total/perPage);
-        let r_sql = `SELECT * FROM \`kit_items\` `;
+        let r_sql = `SELECT * FROM \`kit_categories\` `;
         [r2] = await db.query(r_sql);
     
     return {
@@ -134,4 +129,4 @@ class KitSet {
 //   }
 }
 
-module.exports = KitSet
+module.exports = KitCat
